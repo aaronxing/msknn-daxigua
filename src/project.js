@@ -1062,6 +1062,7 @@ window.__require = function e(t, n, o) {
     "../common/PlayerInfo": "PlayerInfo",
     "./GameManager": "GameManager",
     "./MainGameUi": "MainGameUi"
+    
   }],
   GameConfig: [function (e, t, n) {
     "use strict";
@@ -1972,6 +1973,7 @@ window.__require = function e(t, n, o) {
     });
     var a = e("../common/PlayerInfo"),
       i = e("./EffectCenter"),
+      b = e("./GameFunction"),
       r = e("./AudioManager"),
       s = e("./DataManager"),
       l = e("../commonJs/GameConfig"),
@@ -1998,9 +2000,9 @@ window.__require = function e(t, n, o) {
         }, t.prototype.update = function (e) {
           this.UpdateScoreLabel(e), this.lerpCtrl && this.lerpNumFunc(this.passlevelYQ), this.levelPanel.children[1].getComponent(cc.Label).string = s.default.Instance.GetLevel().toString()
         }, t.prototype.adsButtonFunc = function () {
-          if (adLink) {
-            window.location.href = adLink
-          }
+          if(b.default.Instance.targetFruit.name==='') return;
+          b.default.Instance.targetFruit.destroy()
+          b.default.Instance.createOneFruit(Math.floor(Math.random()*6))
         }, t.prototype.TestPasslevel = function () {
           var e = this;
           this.lerpCtrl = !0, this.nowYQ >= this.passlevelYQ && (this.levelPanel.children[2].runAction(cc.sequence(cc.delayTime(1.3), cc.callFunc(function () {
@@ -2061,7 +2063,8 @@ window.__require = function e(t, n, o) {
     "../commonJs/GameConfig": "GameConfig",
     "./AudioManager": "AudioManager",
     "./DataManager": "DataManager",
-    "./EffectCenter": "EffectCenter"
+    "./EffectCenter": "EffectCenter",
+    "./GameFunction": "GameFunction"
   }],
   MainManage: [function (e, t, n) {
     "use strict";
