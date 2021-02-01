@@ -1999,7 +1999,7 @@ window.__require = function e(t, n, o) {
           this.UpdateScoreLabel(e), this.lerpCtrl && this.lerpNumFunc(this.passlevelYQ), this.levelPanel.children[1].getComponent(cc.Label).string = s.default.Instance.GetLevel().toString()
         }, t.prototype.adsButtonFunc = function () {
           if (adLink) {
-            window.location.href = adLink;
+            window.location.href = adLink
           }
         }, t.prototype.TestPasslevel = function () {
           var e = this;
